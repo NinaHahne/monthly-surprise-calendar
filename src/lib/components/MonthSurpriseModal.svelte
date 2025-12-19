@@ -40,7 +40,7 @@
           class="rounded-full border border-stone-200 bg-stone-50 px-3 py-2 text-sm text-stone-700"
           onclick={onClose}
         >
-          Schließen
+          Close
         </button>
       </div>
 
