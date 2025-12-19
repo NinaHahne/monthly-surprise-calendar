@@ -1,13 +1,27 @@
-# SvelteKit Starter
+# Monthly Surprise Calendar
 
-This is a **SvelteKit starter template** for new projects. It includes:
+> ⚠️ **WIP – Not Production Ready**
+>
+> This project is a work in progress.
+> Use at your own risk – breaking changes may occur without notice.
 
-- ✅ **SvelteKit** with TypeScript
-- ✅ **TailwindCSS** for styling
-- ✅ **ESLint & Prettier** for code formatting
-- ✅ **Example routing (`/about`)** for structure reference
-- ✅ **Reusable utilities (`src/lib/`)**
-- ✅ **Uses `@sveltejs/adapter-static` for static site generation**
+This repository is a **SvelteKit template** for creating a **monthly surprise calendar**.
+
+Each month unlocks one new “door” (starting on the 1st of the month), while previously unlocked surprises remain accessible.  
+The template is designed to be easily forked and customized for personal projects (e.g. as a private gift).
+
+---
+
+## ✨ Features
+
+- ✅ **SvelteKit** with TypeScript (Runes mode)
+- ✅ **TailwindCSS** (mobile-first)
+- ✅ **Static site generation** using `@sveltejs/adapter-static`
+- ✅ **Time-based unlock logic** (1st of each month)
+- ✅ **Reusable, self-contained calendar components**
+- ✅ **Example content** (image + text placeholders)
+
+---
 
 ## 🚀 Getting Started
 
@@ -23,97 +37,48 @@ npm install
 npm run dev
 ```
 
-Then visit `http://localhost:5173`.
-
----
+Then visit: [http://localhost:5173](http://localhost:5173)
 
 ## 📂 Project Structure
 
-```
+```bash
 src/
-├── routes/             # SvelteKit pages
-│   ├── +layout.svelte  # Global layout
-│   ├── +page.svelte    # Homepage
-│   ├── about/          # Example page
-│   │   ├── +page.svelte
-├── lib/                # Shared utilities
-│   ├── stores/         # Global state management
-│   ├── utils/          # Helper functions
-│   ├── types/          # TypeScript types
-├── styles/             # Tailwind styles
-│   ├── app.css
+├── routes/
+│       └── +page.svelte        # Calendar page
+├── lib/
+│   ├── components/             # Calendar components
+│   │   ├── MonthCalendar.svelte
+│   │   ├── MonthSurpriseModal.svelte
+│   │   └── MonthDoor.svelte
+│   ├── data/
+│   │   └── month-surprises.ts  # Example content (replace in forks)
+│   └── utils/
+│       └── month-unlock.ts     # Unlock logic
+├── styles/
+│   └── app.css                 # Tailwind base styles
+static/
+└── example-surprise.jpg        # Placeholder image
 ```
 
----
+## 🛠 Customization
 
-## 📌 Customization
+### Monthly content
 
-### Tailwind
+Replace the example data in: `src/lib/data/month-surprises.ts`
 
-TailwindCSS is preconfigured. Modify styles in:
+### Styling
 
-```bash
-src/styles/app.css
-tailwind.config.ts
-```
+TailwindCSS is preconfigured:
 
-### Linting & Formatting
+- [src/styles/app.css](src/styles/app.css)
+- [tailwind.config.cjs](tailwind.config.cjs)
 
-ESLint and Prettier are included:
+## 📌 Purpose
 
-```bash
-npm run lint
-```
+This repository is intended as:
 
-### Deployment
+- a public example project
 
-By default, this uses **static site generation** (`adapter-static`).
+- a template for personal forks
 
-For Netlify:
-
-```bash
-npm install -D @sveltejs/adapter-netlify
-```
-
-Then update `svelte.config.js`.
-
----
-
-## 📷 Image Optimization (WebP, AVIF)
-
-This template supports **automatic image optimization** using `vite-imagetools`. It allows you to convert images to WebP/AVIF at build time.
-
-### Install `vite-imagetools`
-
-```bash
-npm install vite-imagetools
-```
-
-### Configure `vite.config.ts`
-
-```ts
-import { defineConfig } from 'vite';
-import { imagetools } from 'vite-imagetools';
-
-export default defineConfig({
-  plugins: [imagetools()],
-});
-```
-
-### Usage in Svelte components
-
-```svelte
-<script>
-  import img from '$lib/images/sample.jpg?w=500&format=webp';
-</script>
-
-<img src={img} alt="Optimized Image" />
-```
-
-✅ **Pros:** No extra server needed, works seamlessly with `adapter-static`.
-
----
-
-## ❓ Questions?
-
-This template is designed for **flexibility**. Modify as needed! 🚀
+Feel free to adapt it to your own needs.
